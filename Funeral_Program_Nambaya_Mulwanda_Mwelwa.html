@@ -138,6 +138,18 @@
             grid-column: span 2;
             max-height: 55mm;
         }
+        .compact-gallery {
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 2mm;
+            margin-top: 2mm;
+        }
+        .compact-gallery img {
+            max-height: 28mm;
+            border-radius: 2px;
+        }
+        .compact-gallery img:nth-child(4) {
+            grid-column: span 2;
+        }
         .memory-header {
             text-align: center;
             margin-bottom: 8mm;
@@ -221,21 +233,21 @@
             font-style: italic;
         }
         .section {
-            margin-bottom: 8mm;
+            margin-bottom: 5mm;
         }
         .section-title {
-            font-size: 12pt;
+            font-size: 11pt;
             font-weight: bold;
             color: #2c1810;
             text-transform: uppercase;
             letter-spacing: 2px;
-            margin-bottom: 3mm;
+            margin-bottom: 2mm;
             border-bottom: 1px solid #ccc;
-            padding-bottom: 2mm;
+            padding-bottom: 1mm;
         }
         .program-item {
             display: flex;
-            margin-bottom: 3mm;
+            margin-bottom: 2mm;
             align-items: baseline;
         }
         .program-label {
@@ -314,8 +326,8 @@
         .grave-site-box {
             background: #fafafa;
             border: 1px solid #ddd;
-            padding: 6mm;
-            margin-top: 6mm;
+            padding: 4mm;
+            margin-top: 4mm;
         }
         .grave-site-title {
             font-size: 13pt;
@@ -330,11 +342,11 @@
         }
         .footer-note {
             text-align: center;
-            font-size: 10pt;
+            font-size: 9pt;
             color: #666;
-            margin-top: 10mm;
+            margin-top: 6mm;
             border-top: 1px solid #ccc;
-            padding-top: 4mm;
+            padding-top: 3mm;
             font-style: italic;
             position: relative;
         }
@@ -524,43 +536,23 @@
         </div>
     </div>
     
+    <div class="section">
+        <div class="section-title">In Loving Memory</div>
+        <div class="photo-gallery compact-gallery">
+            <img src="Nambaya (2).jpeg" alt="Nambaya">
+            <img src="Nambaya (3).jpeg" alt="Nambaya">
+            <img src="Nambaya (4).jpeg" alt="Nambaya">
+            <img src="Nambaya (5).jpeg" alt="Nambaya">
+            <img src="Nambaya (6).jpeg" alt="Nambaya">
+            <img src="Nambaya (7).jpeg" alt="Nambaya">
+            <img src="Nambaya.jpeg" alt="Nambaya">
+        </div>
+    </div>
+
     <div class="footer-note">
         "For everything there is a season, and a time for every matter under heaven..." — Ecclesiastes 3:1
     </div>
     <div class="page-number">2</div>
-</div>
-
-<!-- PAGE 3: IN LOVING MEMORY -->
-<div class="page">
-    <div class="page-floral-corner corner-tl"></div>
-    <div class="page-floral-corner corner-tr"></div>
-    <div class="page-floral-corner corner-bl"></div>
-    <div class="page-floral-corner corner-br"></div>
-
-    <div class="memory-header">
-        <h2>In Loving Memory</h2>
-        <p>Nambaya Mulwanda Mwelwa</p>
-    </div>
-
-    <div class="memory-quote">
-        "Those we love don't go away, they walk beside us every day.<br>
-        Unseen, unheard, but always near, still loved, still missed, and very dear."
-    </div>
-
-    <div class="photo-gallery">
-        <img src="Nambaya (2).jpeg" alt="Nambaya" class="featured">
-        <img src="Nambaya (3).jpeg" alt="Nambaya">
-        <img src="Nambaya (4).jpeg" alt="Nambaya">
-        <img src="Nambaya (5).jpeg" alt="Nambaya">
-        <img src="Nambaya (6).jpeg" alt="Nambaya">
-        <img src="Nambaya (7).jpeg" alt="Nambaya">
-        <img src="Nambaya.jpeg" alt="Nambaya">
-    </div>
-
-    <div class="footer-note">
-        "Precious in the sight of the Lord is the death of His saints." — Psalm 116:15
-    </div>
-    <div class="page-number">3</div>
 </div>
 
 </body>
