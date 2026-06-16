@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funeral Service Programme - Nambaya Mulwanda Mwelwa</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 0;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: "Times New Roman", Georgia, serif;
+            background: #f5f5f5;
+            color: #1a1a1a;
+            line-height: 1.6;
+        }
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            margin: 20px auto;
+            background: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.15);
+            padding: 20mm 18mm;
+            position: relative;
+            page-break-after: always;
+        }
+        .page:last-child {
+            page-break-after: auto;
+        }
+        /* Cover Page */
+        .cover {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 257mm;
+            text-align: center;
+            padding-top: 10mm;
+        }
+        .cover-border {
+            border: 3px double #2c1810;
+            padding: 12mm;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+        }
+        .cover-border::before, .cover-border::after {
+            content: "";
+            position: absolute;
+            width: 40mm;
+            height: 40mm;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M10,50 Q25,10 50,25 Q75,10 90,50 Q75,90 50,75 Q25,90 10,50' fill='none' stroke='%238B6F8B' stroke-width='0.9' opacity='0.45'/%3E%3Cpath d='M20,50 Q35,20 50,35 Q65,20 80,50 Q65,80 50,65 Q35,80 20,50' fill='none' stroke='%237A9E7E' stroke-width='0.6' opacity='0.35'/%3E%3Ccircle cx='50' cy='50' r='3' fill='%23B88A9A' opacity='0.4'/%3E%3Cpath d='M50,20 Q55,35 50,50 Q45,35 50,20' fill='%23C49A8C' opacity='0.25'/%3E%3Cpath d='M50,80 Q55,65 50,50 Q45,65 50,80' fill='%23C49A8C' opacity='0.25'/%3E%3Cpath d='M20,50 Q35,45 50,50 Q35,55 20,50' fill='%23A8B89A' opacity='0.2'/%3E%3Cpath d='M80,50 Q65,45 50,50 Q65,55 80,50' fill='%23A8B89A' opacity='0.2'/%3E%3Ccircle cx='25' cy='25' r='2' fill='%23D4A5A5' opacity='0.3'/%3E%3Ccircle cx='75' cy='75' r='2' fill='%23D4A5A5' opacity='0.3'/%3E%3C/svg%3E");
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+        .cover-border::before {
+            top: 3mm;
+            left: 3mm;
+        }
+        .cover-border::after {
+            bottom: 3mm;
+            right: 3mm;
+            transform: rotate(180deg);
+        }
+        .church-name {
+            font-size: 13pt;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #2c1810;
+            font-weight: bold;
+            margin-bottom: 3mm;
+        }
+        .church-sub {
+            font-size: 10pt;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: #5a4a3a;
+            margin-bottom: 10mm;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 5mm;
+            width: 80%;
+        }
+        .logo-img {
+            max-width: 70mm;
+            max-height: 25mm;
+            margin-bottom: 3mm;
+            object-fit: contain;
+        }
+        .logo-fallback {
+            font-size: 13pt;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #2c1810;
+            font-weight: bold;
+            margin-bottom: 3mm;
+        }
+        .cover-label {
+            font-size: 11pt;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #5a4a3a;
+            margin-bottom: 8mm;
+        }
+        .cover-photo {
+            width: 68mm;
+            height: 68mm;
+            object-fit: cover;
+            display: block;
+            border: 3px solid #8B6F8B;
+            box-shadow: 0 0 0 2px white, 0 0 0 4px #D4A5A5, 0 4px 16px rgba(0,0,0,0.2);
+        }
+        .photo-gallery {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4mm;
+            margin-top: 4mm;
+        }
+        .photo-gallery img {
+            width: 100%;
+            max-height: 45mm;
+            object-fit: contain;
+            background: #f5f5f5;
+            border: 1px solid #ddd;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+            page-break-inside: avoid;
+            break-inside: avoid;
+        }
+        .photo-gallery .featured {
+            grid-column: span 2;
+            max-height: 55mm;
+        }
+        .memory-header {
+            text-align: center;
+            margin-bottom: 8mm;
+        }
+        .memory-header h2 {
+            font-size: 22pt;
+            color: #2c1810;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 3mm;
+        }
+        .memory-header p {
+            font-size: 12pt;
+            color: #5a4a3a;
+            font-style: italic;
+        }
+        .memory-quote {
+            text-align: center;
+            font-size: 11pt;
+            color: #666;
+            font-style: italic;
+            margin: 8mm 0;
+            padding: 5mm;
+            background: #fafafa;
+            border-left: 3px solid #8B6F8B;
+            border-right: 3px solid #8B6F8B;
+        }
+        .cover-name {
+            font-size: 28pt;
+            font-weight: bold;
+            color: #1a1a1a;
+            margin-bottom: 6mm;
+            letter-spacing: 1px;
+            line-height: 1.3;
+        }
+        .cover-venue {
+            font-size: 12pt;
+            color: #5a4a3a;
+            margin-bottom: 3mm;
+        }
+        .cover-date-time {
+            font-size: 13pt;
+            color: #2c1810;
+            font-weight: bold;
+            letter-spacing: 2px;
+            margin-top: 5mm;
+        }
+        .cover-footer {
+            margin-top: auto;
+            font-size: 10pt;
+            color: #888;
+            font-style: italic;
+            padding-bottom: 5mm;
+        }
+        /* Inner Pages */
+        .header {
+            text-align: center;
+            border-bottom: 2px solid #2c1810;
+            padding-bottom: 6mm;
+            margin-bottom: 8mm;
+            position: relative;
+        }
+        .header::after {
+            content: "❧";
+            display: block;
+            font-size: 18pt;
+            color: #8B6F8B;
+            margin-top: 2mm;
+            opacity: 0.7;
+        }
+        .header h1 {
+            font-size: 20pt;
+            color: #1a1a1a;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 2mm;
+        }
+        .header-sub {
+            font-size: 11pt;
+            color: #5a4a3a;
+            font-style: italic;
+        }
+        .section {
+            margin-bottom: 8mm;
+        }
+        .section-title {
+            font-size: 12pt;
+            font-weight: bold;
+            color: #2c1810;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 3mm;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 2mm;
+        }
+        .program-item {
+            display: flex;
+            margin-bottom: 3mm;
+            align-items: baseline;
+        }
+        .program-label {
+            min-width: 55mm;
+            font-weight: bold;
+            color: #1a1a1a;
+            font-size: 11pt;
+        }
+        .program-detail {
+            flex: 1;
+            font-size: 11pt;
+            color: #333;
+        }
+        .program-sublabel {
+            font-size: 10pt;
+            color: #5a4a3a;
+            font-style: italic;
+            margin-left: 55mm;
+            margin-bottom: 2mm;
+        }
+        .divider {
+            text-align: center;
+            margin: 6mm 0;
+            color: #999;
+            font-size: 14pt;
+            letter-spacing: 5px;
+        }
+        .floral-divider {
+            text-align: center;
+            margin: 5mm 0;
+            position: relative;
+        }
+        .floral-divider::before {
+            content: "";
+            display: inline-block;
+            width: 30mm;
+            height: 10mm;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 40'%3E%3Cpath d='M60,20 Q50,5 35,15 Q25,20 35,25 Q50,35 60,20' fill='none' stroke='%238B6F8B' stroke-width='0.7' opacity='0.5'/%3E%3Cpath d='M60,20 Q70,5 85,15 Q95,20 85,25 Q70,35 60,20' fill='none' stroke='%237A9E7E' stroke-width='0.7' opacity='0.5'/%3E%3Ccircle cx='60' cy='20' r='2.5' fill='%23B88A9A' opacity='0.5'/%3E%3Cpath d='M15,20 L40,20' stroke='%23C49A8C' stroke-width='0.5' opacity='0.4'/%3E%3Cpath d='M80,20 L105,20' stroke='%23C49A8C' stroke-width='0.5' opacity='0.4'/%3E%3Ccircle cx='25' cy='20' r='1.5' fill='%23D4A5A5' opacity='0.4'/%3E%3Ccircle cx='95' cy='20' r='1.5' fill='%23A8B89A' opacity='0.4'/%3E%3C/svg%3E");
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+        .page-floral-corner {
+            position: absolute;
+            width: 25mm;
+            height: 25mm;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M80,20 Q60,30 50,50 Q40,30 20,20' fill='none' stroke='%238B6F8B' stroke-width='0.8' opacity='0.35'/%3E%3Cpath d='M85,35 Q65,45 50,50 Q45,35 35,25' fill='none' stroke='%237A9E7E' stroke-width='0.6' opacity='0.3'/%3E%3Ccircle cx='50' cy='50' r='2.5' fill='%23B88A9A' opacity='0.35'/%3E%3Ccircle cx='35' cy='35' r='2' fill='%23D4A5A5' opacity='0.3'/%3E%3Ccircle cx='65' cy='35' r='1.5' fill='%23A8B89A' opacity='0.25'/%3E%3C/svg%3E");
+            background-size: contain;
+            background-repeat: no-repeat;
+            pointer-events: none;
+        }
+        .corner-tl { top: 8mm; left: 8mm; }
+        .corner-tr { top: 8mm; right: 8mm; transform: scaleX(-1); }
+        .corner-bl { bottom: 8mm; left: 8mm; transform: scaleY(-1); }
+        .corner-br { bottom: 8mm; right: 8mm; transform: scale(-1); }
+        .section-title {
+            font-size: 12pt;
+            font-weight: bold;
+            color: #2c1810;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 3mm;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 2mm;
+            position: relative;
+        }
+        .section-title::after {
+            content: "❧";
+            position: absolute;
+            right: 0;
+            bottom: -2mm;
+            font-size: 10pt;
+            color: #8B6F8B;
+            opacity: 0.6;
+        }
+        .grave-site-box {
+            background: #fafafa;
+            border: 1px solid #ddd;
+            padding: 6mm;
+            margin-top: 6mm;
+        }
+        .grave-site-title {
+            font-size: 13pt;
+            font-weight: bold;
+            color: #2c1810;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 4mm;
+            text-align: center;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 2mm;
+        }
+        .footer-note {
+            text-align: center;
+            font-size: 10pt;
+            color: #666;
+            margin-top: 10mm;
+            border-top: 1px solid #ccc;
+            padding-top: 4mm;
+            font-style: italic;
+            position: relative;
+        }
+        .footer-note::before {
+            content: "❧";
+            display: block;
+            font-size: 14pt;
+            color: #7A9E7E;
+            margin-bottom: 2mm;
+            opacity: 0.6;
+        }
+        .page-number {
+            position: absolute;
+            bottom: 10mm;
+            right: 18mm;
+            font-size: 10pt;
+            color: #888;
+        }
+        @media print {
+            body {
+                background: white;
+            }
+            .page {
+                margin: 0;
+                box-shadow: none;
+                width: 100%;
+                min-height: 100vh;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- PAGE 1: COVER -->
+<div class="page cover">
+    <div class="cover-border">
+        <img src="MLFC-logo.jpg" alt="MiracleLife Family Church" class="logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+        <div class="logo-fallback" style="display:none;">MiracleLife Family Church</div>
+        <div class="church-sub">Funeral Service Programme</div>
+        
+        <div class="cover-label">For the Late</div>
+        
+        <img src="Nambaya-main.jpg.jpeg" alt="Nambaya Mulwanda Mwelwa" class="cover-photo">
+        
+        <div class="cover-name">
+            NAMBAYA<br>
+            MULWANDA MWELWA
+        </div>
+        
+        <div class="cover-venue">MLFC Auditorium</div>
+        <div class="cover-date-time">17th June, 2026 &nbsp;|&nbsp; 09:30 Hours</div>
+        
+        <div class="cover-footer">"The Lord is close to the brokenhearted" — Psalm 34:18</div>
+    </div>
+</div>
+
+<!-- PAGE 2: ORDER OF SERVICE -->
+<div class="page">
+    <div class="page-floral-corner corner-tl"></div>
+    <div class="page-floral-corner corner-tr"></div>
+    <div class="page-floral-corner corner-bl"></div>
+    <div class="page-floral-corner corner-br"></div>
+    <div class="header">
+        <h1>Order of Service</h1>
+        <div class="header-sub">MLFC Auditorium &nbsp;&bull;&nbsp; 17th June, 2026 &nbsp;&bull;&nbsp; 09:30 Hours</div>
+    </div>
+    
+    <div class="section">
+        <div class="program-item">
+            <div class="program-label">Call to Order</div>
+            <div class="program-detail">Worship Team</div>
+        </div>
+        <div class="program-item">
+            <div class="program-label">Entrance Song</div>
+            <div class="program-detail"><em>Lesa Ekachema wandi</em></div>
+        </div>
+        <div class="program-sublabel">Worship Team</div>
+        <div class="program-item">
+            <div class="program-label">Opening Prayer</div>
+            <div class="program-detail">Pastor Sammie Ndhlovu</div>
+        </div>
+        <div class="program-item">
+            <div class="program-label">Intimation</div>
+            <div class="program-detail">Ebron Ngoma</div>
+        </div>
+        <div class="program-item">
+            <div class="program-label">Ministry in Music</div>
+            <div class="program-detail"><em>It is well</em></div>
+        </div>
+        <div class="program-sublabel">Worship Team</div>
+    </div>
+    
+    <div class="section">
+        <div class="section-title">Scripture Readings</div>
+        <div class="program-item">
+            <div class="program-label">Dorcus &nbsp;<span style="font-weight:normal;font-style:italic;color:#5a4a3a;">(Niece)</span></div>
+            <div class="program-detail">Ecclesiastes 3:1-2</div>
+        </div>
+        <div class="program-item">
+            <div class="program-label">Aunt Gloria &nbsp;<span style="font-weight:normal;font-style:italic;color:#5a4a3a;">(Aunt)</span></div>
+            <div class="program-detail">Psalm 147:3</div>
+        </div>
+        <div class="program-item">
+            <div class="program-label">Aunt Yaona &nbsp;<span style="font-weight:normal;font-style:italic;color:#5a4a3a;">(Aunt)</span></div>
+            <div class="program-detail">John 6:40</div>
+        </div>
+    </div>
+    
+    <div class="section">
+        <div class="section-title">Life History</div>
+        <div class="program-item">
+            <div class="program-label">Mr. Weston Mwaba</div>
+            <div class="program-detail">Uncle</div>
+        </div>
+    </div>
+    
+    <div class="section">
+        <div class="section-title">Tributes</div>
+        <div class="program-item">
+            <div class="program-label">Mr. Chisenga Mwelwa</div>
+            <div class="program-detail">Husband</div>
+        </div>
+        <div class="program-item">
+            <div class="program-label">Goodson</div>
+            <div class="program-detail">Nephew</div>
+        </div>
+        <div class="program-item">
+            <div class="program-label">Namonje</div>
+            <div class="program-detail">Sister <span style="font-style:italic;color:#5a4a3a;">(On Behalf of Sisters)</span></div>
+        </div>
+        <div class="program-item">
+            <div class="program-label">Banji</div>
+            <div class="program-detail">Friend <span style="font-style:italic;color:#5a4a3a;">(On Behalf of Friends)</span></div>
+        </div>
+    </div>
+    
+    <div class="section">
+        <div class="program-item">
+            <div class="program-label">Offering</div>
+            <div class="program-detail">Pastor Sammie Ndhlovu</div>
+        </div>
+        <div class="program-item">
+            <div class="program-label">Song</div>
+            <div class="program-detail"><em>What A Friend We Have in Jesus</em></div>
+        </div>
+        <div class="program-sublabel">Worship Team</div>
+        <div class="program-item">
+            <div class="program-label">Homily</div>
+            <div class="program-detail">Pastor Sammie Ndhlovu</div>
+        </div>
+        <div class="program-item">
+            <div class="program-label">Closing</div>
+            <div class="program-detail"></div>
+        </div>
+    </div>
+    
+    <div class="section">
+        <div class="section-title">Body Viewing</div>
+        <div class="program-item">
+            <div class="program-label"></div>
+            <div class="program-detail"><em>Great is Thy Faithfulness</em> &amp; <em>Because He Lives</em></div>
+        </div>
+        <div class="program-sublabel">Worship Team</div>
+    </div>
+    
+    <div class="grave-site-box">
+        <div class="grave-site-title">Grave Site Service &mdash; Memorial Park</div>
+        <div class="program-item">
+            <div class="program-label">Opening Prayer</div>
+            <div class="program-detail">Pastor Sammie Ndhlovu</div>
+        </div>
+        <div class="program-item">
+            <div class="program-label">Committal</div>
+            <div class="program-detail">Pastor Sammie Ndhlovu</div>
+        </div>
+        <div class="program-item">
+            <div class="program-label">Laying of Wreaths</div>
+            <div class="program-detail">Ebron Ngoma</div>
+        </div>
+        <div class="program-item">
+            <div class="program-label">Family Representative</div>
+            <div class="program-detail">Uncle Teddy</div>
+        </div>
+        <div class="program-item">
+            <div class="program-label">Closing Prayer</div>
+            <div class="program-detail">Pastor Sammie Ndhlovu</div>
+        </div>
+    </div>
+    
+    <div class="footer-note">
+        "For everything there is a season, and a time for every matter under heaven..." — Ecclesiastes 3:1
+    </div>
+    <div class="page-number">2</div>
+</div>
+
+<!-- PAGE 3: IN LOVING MEMORY -->
+<div class="page">
+    <div class="page-floral-corner corner-tl"></div>
+    <div class="page-floral-corner corner-tr"></div>
+    <div class="page-floral-corner corner-bl"></div>
+    <div class="page-floral-corner corner-br"></div>
+
+    <div class="memory-header">
+        <h2>In Loving Memory</h2>
+        <p>Nambaya Mulwanda Mwelwa</p>
+    </div>
+
+    <div class="memory-quote">
+        "Those we love don't go away, they walk beside us every day.<br>
+        Unseen, unheard, but always near, still loved, still missed, and very dear."
+    </div>
+
+    <div class="photo-gallery">
+        <img src="Nambaya (2).jpeg" alt="Nambaya" class="featured">
+        <img src="Nambaya (3).jpeg" alt="Nambaya">
+        <img src="Nambaya (4).jpeg" alt="Nambaya">
+        <img src="Nambaya (5).jpeg" alt="Nambaya">
+        <img src="Nambaya (6).jpeg" alt="Nambaya">
+        <img src="Nambaya (7).jpeg" alt="Nambaya">
+        <img src="Nambaya.jpeg" alt="Nambaya">
+    </div>
+
+    <div class="footer-note">
+        "Precious in the sight of the Lord is the death of His saints." — Psalm 116:15
+    </div>
+    <div class="page-number">3</div>
+</div>
+
+</body>
+</html>
